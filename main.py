@@ -5,6 +5,7 @@ def main():
     import altair as alt
     import streamlit as st
 
+    from datetime import datetime
     from log_setup import logger
     from sql_cmds import create_db_conn
 
@@ -24,9 +25,11 @@ def main():
     with create_db_conn() as db_conn:
         last_update = pd.read_sql(
             "SELECT MAX(LAST_ENTRY_CREATION_TIME) from prefs", db_conn).iloc[0, 0]
+    last_update_date = datetime.strptime(
+        str(last_update), "%Y-%m-%d %H:%M:%S.%f")
 
     st.subheader(
-        f"Last Mood Data Update: {last_update}")
+        f"Last Mood Data Update: {last_update_date.strftime('%Y-%m-%d %H:%M:%S')}")
 
     st.subheader("📈 Daily Mood Average (Last 90 Days)")
     logger.info("Loading daily mood averages from database...")
