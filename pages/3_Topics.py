@@ -10,8 +10,9 @@ with st.form("add_topic"):
     new_details = st.text_area("Details (optional)")
     if st.form_submit_button("Add Topic") and new_topic.strip():
         conn = create_db_conn()
+        topicArgs = (new_topic.strip(), new_details.strip() or None)
         execute_sql_command(conn, "INSERT INTO topics (topic, details) VALUES (?, ?)",
-                            True, (new_topic.strip(), new_details.strip() or None))
+                            True, topicArgs)
         st.success("Topic added!")
 
 # View selection
