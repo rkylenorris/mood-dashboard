@@ -1,14 +1,13 @@
-import json
-import pandas as pd
-import altair as alt
-import streamlit as st
-
-from pathlib import Path
-from log_setup import logger
-from sql_cmds import create_db_conn
 
 
 def main():
+    import pandas as pd
+    import altair as alt
+    import streamlit as st
+
+    from log_setup import logger
+    from sql_cmds import create_db_conn
+
     logger.info("Starting Streamlit app...")
 
     st.set_page_config(page_title="Mood Dashboard",
