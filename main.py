@@ -26,7 +26,7 @@ def main():
             "SELECT MAX(LAST_ENTRY_CREATION_TIME) from prefs", db_conn).iloc[0, 0]
 
     st.subheader(
-        f"Last Mood Data Update: {last_update.strftime('%Y-%m-%d %H:%M:%S')}")
+        f"Last Mood Data Update: {last_update}")
 
     st.subheader("📈 Daily Mood Average (Last 90 Days)")
     logger.info("Loading daily mood averages from database...")
