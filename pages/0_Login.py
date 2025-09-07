@@ -30,7 +30,7 @@ def authenticate_user(username: str, password: str) -> bool:
     print(type(username), type(password))
     with create_db_conn(DB_PATH) as conn:
         query = "SELECT password_hash FROM users WHERE username = ?"
-        result = execute_sql_command(conn, query, False, (username))
+        result = execute_sql_command(conn, query, False, *username)
 
         if result:
             stored_password = result[0][0]
