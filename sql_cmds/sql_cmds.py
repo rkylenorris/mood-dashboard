@@ -2,9 +2,15 @@ import sqlite3
 from pathlib import Path
 import pandas as pd
 from log_setup import logger
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+DB_PATH = os.getenv("DB_PATH", "daylio_data.db")
 
 
-def create_db_conn(db_path) -> sqlite3.Connection:
+def create_db_conn(db_path: str = DB_PATH) -> sqlite3.Connection:
     """
     creates a new database connection to the SQLite database
     :return:
