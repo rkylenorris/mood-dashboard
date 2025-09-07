@@ -23,7 +23,7 @@ def main():
 
     with create_db_conn() as db_conn:
         last_update = pd.read_sql(
-            "SELECT LAST_ENTRY_CREATION_TIME from prefs", db_conn).iloc[0, 0]
+            "SELECT MAX(LAST_ENTRY_CREATION_TIME) from prefs", db_conn).iloc[0, 0]
 
     st.subheader(f"Last Mood Data Update: {last_update}")
 
