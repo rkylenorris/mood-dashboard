@@ -29,7 +29,7 @@ def main():
         str(last_update), "%Y-%m-%d %H:%M:%S.%f")
 
     st.subheader(
-        f"Last Mood Data Update: {last_update_date.strftime('%Y-%m-%d %H:%M:%S')}")
+        f"Last Mood Data Update: {last_update_date.strftime('%Y-%m-%d %I:%M:%S %p')}")
 
     st.subheader("📈 Daily Mood Average (Last 90 Days)")
     logger.info("Loading daily mood averages from database...")
