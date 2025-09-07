@@ -22,7 +22,7 @@ def execute_sql_command(conn: sqlite3.Connection, command: str, commit: bool = T
     with conn:
         cursor = conn.cursor()
         if args:
-            if len(args) == 1:
+            if len(*args) == 1:
                 cursor.execute(command, args)
             else:
                 cursor.execute(command, *args)
