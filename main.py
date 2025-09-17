@@ -6,8 +6,10 @@ def main():
     import streamlit as st
 
     from datetime import datetime
-    from log_setup import logger
+    from log_setup import setup_logger
     from sql_cmds import create_db_conn
+
+    logger = setup_logger()
 
     logger.info("Starting Streamlit app...")
 

@@ -44,7 +44,7 @@ class SQLiteHandler(Handler):
             self.handleError(record)
 
 
-def setup_logger(name="daylio_etl_logger", db_path='daylio_etl_logs.db'):
+def setup_logger(name="daylio_dashboard", db_path='daylio_dashboard_logs.db'):
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
     logger.handlers.clear()  # Avoid duplicates on reruns in Streamlit

@@ -1,9 +1,11 @@
 import sqlite3
 from pathlib import Path
 import pandas as pd
-from log_setup import logger
+from log_setup import setup_logger
 from dotenv import load_dotenv
 import os
+
+logger = setup_logger(__name__)
 
 load_dotenv()
 
