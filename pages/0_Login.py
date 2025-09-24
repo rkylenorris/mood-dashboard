@@ -1,11 +1,11 @@
 import streamlit as st
 import bcrypt
 from sql_cmds import create_db_conn, execute_sql_command
-from log_setup import setup_logger
+from log_setup import get_logger
 from dotenv import load_dotenv
 import os
 
-logger = setup_logger(__name__)
+logger = get_logger(__name__)
 load_dotenv()
 DB_PATH = os.getenv("DB_PATH", "daylio_data.db")
 
