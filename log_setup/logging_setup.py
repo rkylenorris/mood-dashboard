@@ -14,7 +14,7 @@ from logging.handlers import QueueHandler, QueueListener
 LOG_DB_PATH = os.getenv("DB_PATH", None)
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
 
-if not LOG_DB_PATH or not LOG_LEVEL:
+if (not LOG_DB_PATH) or (not LOG_LEVEL):
     raise ValueError(
         "Both DB_PATH and LOG_LEVEL environment variables must be set")
 
