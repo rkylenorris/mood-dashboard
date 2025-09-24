@@ -1,14 +1,19 @@
-# log_setup/logging_setup.py
 from __future__ import annotations
-
-import atexit
-import logging
 import os
 import queue
+import atexit
+import logging
 import sqlite3
 import threading
+
 from datetime import datetime
+from dotenv import load_dotenv
+
 from logging.handlers import QueueHandler, QueueListener
+
+# log_setup/logging_setup.py
+
+load_dotenv()
 
 # --- Config ---
 LOG_DB_PATH = os.getenv("DB_PATH", None)
